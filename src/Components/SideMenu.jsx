@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import CharAvatar from './Cards/CharAvatar';
 
 const SideMenu = ({ activeMenu }) => {
-    const { user, clearuser } = useContext(UserContext);
+    const { user, clearUser } = useContext(UserContext);
     const navigate = useNavigate();
 
     const handleClick = (route) => {
@@ -17,8 +17,8 @@ const SideMenu = ({ activeMenu }) => {
     };
 
     const handleLogout = () => {
-        localStorage.clear();
-        clearuser();
+        localStorage.removeItem("token");
+        clearUser();
         navigate("/login");
     };
 
@@ -33,7 +33,7 @@ const SideMenu = ({ activeMenu }) => {
                     />
                 ) : (
                     <CharAvatar 
-                        fullName={user?.fullname} 
+                        fullName={user?.fullName} 
                         width="w-20" 
                         height="h-20" 
                         style="text-xl"
