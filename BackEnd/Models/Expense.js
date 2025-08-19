@@ -7,4 +7,4 @@ const ExpenseSchema= mongoose.Schema({
     date:{type: Date, default:Date.now}
 }, {timestamps:true})
 
-module.exports= mongoose.model("Expense", ExpenseSchema, "test")
+module.exports= mongoose.model("Expense", ExpenseSchema, "expenses")
