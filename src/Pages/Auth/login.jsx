@@ -68,7 +68,7 @@ const Login = () => {
             </h3>
             <p className='text-xs text-slate-700 mt-[5px] mb-6'>
                 Please Enter your Details to Login <br />
-                Try this using Email:Man@gmail.com and Password:Man12345@
+                Try this using Email:man@gmail.com and Password:Man12345@
             </p>
             <form onSubmit={handlelogin}>
             <Input

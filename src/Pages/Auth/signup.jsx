@@ -78,7 +78,7 @@ const Signup = () => {
         <div className='lg:w-[100%] h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center'>
             <h3 className='text-xl font-semibold text-blue-700'>Create an Account</h3>
             <p className='text-xs text-slate-700 mt-[5px] mb-6'>Join us Today by Entering the Following Details <br />
-            Try this by logging in with Email:Man@gmail.com and Password:Man12345@</p>
+            Try this by logging in with Email:man@gmail.com and Password:Man12345@</p>
             
             <form onSubmit={handlesignup}>
 
