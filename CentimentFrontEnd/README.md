@@ -1,12 +1,11 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Expense Analysis & Prediction Web App | MongoDB, Express.js, React, Node.js, TensorFlow (Jan’24 – Mar’24 )
+– Developed a full-stack finance management web app to record income and expenses, compute net profit/loss, future
+value, and tax liability. Users can manually input data or upload Excel files, which are parsed and stored via a robust
+Node.js + MongoDB backend; the data can also be downloaded in Excel format.
+– Built modular RESTful APIs using Express.js for seamless CRUD operations, and designed a responsive, user-friendly
+frontend using React.js, with dynamic bar and pie charts rendered via Recharts to visualize financial patterns and
+category-wise distributions.
+– Integrated a predictive analytics module using TensorFlow, which analyzes both real-time and historical financial
+inputs to forecast future income and expenses, enabling personalized budgeting and financial planning.
+Script for FrontEnd and BackEnd
+start using: "npm run dev"
