@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Dashboardlayout from '../../Components/dashboardlayout';
+import DashboardLayout from '../../Components/DashboardLayout';
 import axiosInstance from '../../utilities/axios';
 import { API_PATHS } from '../../utilities/apipath';
 import InfoCard from '../../Components/Cards/InfoCard';
@@ -39,16 +39,16 @@ const Accounts = () => {
 
     if (loading) {
         return (
-            <Dashboardlayout activeMenu="Accounts">
+            <DashboardLayout activeMenu="Accounts">
                 <div className="flex justify-center items-center h-screen">
                     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-700"></div>
                 </div>
-            </Dashboardlayout>
+            </DashboardLayout>
         );
     }
 
     return (
-        <Dashboardlayout activeMenu="Accounts">
+        <DashboardLayout activeMenu="Accounts">
             <div className="my-5 mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     <InfoCard
@@ -125,7 +125,7 @@ const Accounts = () => {
                     <AccountsBarGraph data={accountsData} />
                 </div>
             </div>
-        </Dashboardlayout>
+        </DashboardLayout>
     );
 };
 

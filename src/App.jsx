@@ -11,7 +11,7 @@ import Expense from './Pages/Dashboard/Expense'
 import UserProvider from './Context/UserContext';
 import Predictions from './Pages/Dashboard/Predictions';
 import Accounts from './Pages/Dashboard/Accounts';
-import Dashboardlayout from './Components/dashboardlayout';
+import DashboardLayout from './Components/DashboardLayout';
 
 function App() {
   const [count, setCount] = useState(0)

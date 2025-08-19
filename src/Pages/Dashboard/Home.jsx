@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Dashboardlayout from '../../Components/dashboardlayout'
+import DashboardLayout from '../../Components/DashboardLayout'
 import { userUserAuth } from '../../Hooks/userUserAuth';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../utilities/axios';
@@ -52,7 +52,7 @@ const Home = () => {
   }, []);
   
   return (
-    <Dashboardlayout activeMenu="Dashboard">
+            <DashboardLayout activeMenu="Dashboard">
       <div className='my-5 mx-auto'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
           <InfoCard
@@ -114,7 +114,7 @@ const Home = () => {
 
       </div>
 
-    </Dashboardlayout>
+            </DashboardLayout>
   )
 }
 

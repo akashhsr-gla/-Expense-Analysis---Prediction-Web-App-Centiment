@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Dashboardlayout from '../../Components/dashboardlayout';
+import DashboardLayout from '../../Components/DashboardLayout';
 import ExpenseOverview from '../../Components/Expense/ExpenseOverview';
 import axiosInstance from '../../utilities/axios';
 import { API_PATHS } from '../../utilities/apipath';
@@ -85,7 +85,7 @@ const Expense = () => {
   }, []);
 
   return (
-    <Dashboardlayout activeMenu="Expense">
+            <DashboardLayout activeMenu="Expense">
       <div>
         <UploadButton title="Upload Expense Data" onUpload={uploadExpense} apiError={apiError} />
       </div>
@@ -120,7 +120,7 @@ const Expense = () => {
           onCancel={() => setOpenDelete({ show: false, data: null })} 
         />
       </Modal>
-    </Dashboardlayout>
+            </DashboardLayout>
   );
 };
 

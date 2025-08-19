@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Dashboardlayout from '../../Components/dashboardlayout';
+import DashboardLayout from '../../Components/DashboardLayout';
 import axiosInstance from '../../utilities/axios';
 import { API_PATHS } from '../../utilities/apipath';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
@@ -36,7 +36,7 @@ const Predictions = () => {
 
   if (loading) {
     return (
-      <Dashboardlayout activeMenu="Predictions">
+      <DashboardLayout activeMenu="Predictions">
         <div className='my-5 mx-auto'>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             {[...Array(4)].map((_, index) => (
@@ -46,13 +46,13 @@ const Predictions = () => {
             ))}
           </div>
         </div>
-      </Dashboardlayout>
+      </DashboardLayout>
     );
   }
 
   if (error) {
     return (
-      <Dashboardlayout activeMenu="Predictions">
+      <DashboardLayout activeMenu="Predictions">
         <div className='my-5 mx-auto'>
           <div className='card text-center p-6'>
             <p className='text-red-500 mb-4'>{error}</p>
@@ -64,7 +64,7 @@ const Predictions = () => {
             </button>
           </div>
         </div>
-      </Dashboardlayout>
+      </DashboardLayout>
     );
   }
 
@@ -81,7 +81,7 @@ const Predictions = () => {
   }));
 
   return (
-    <Dashboardlayout activeMenu="Predictions">
+    <DashboardLayout activeMenu="Predictions">
       <div className='my-5 mx-auto'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {/* Income Predictions Card */}
@@ -164,7 +164,7 @@ const Predictions = () => {
           </div>
         </div>
       </div>
-    </Dashboardlayout>
+    </DashboardLayout>
   );
 };
 
