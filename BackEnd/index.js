@@ -13,27 +13,34 @@ const accountsRoutes = require("./Routes/accountsRoutes")
 
 const app= express();
 
-// CORS configuration with support for multiple origins via env
+// CORS configuration with support for multiple origins via env and *.vercel.app
 const rawOrigins = process.env.CLIENT_URLS || process.env.CLIENT_URL || "*";
-const allowedOrigins = rawOrigins.split(",").map((o) => o.trim());
+const allowedOrigins = rawOrigins.split(",").map((o) => o.trim()).filter(Boolean);
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin) return callback(null, true); // allow non-browser or same-origin
-      if (
-        allowedOrigins.includes("*") ||
-        allowedOrigins.includes(origin)
-      ) {
-        return callback(null, true);
-      }
-      return callback(new Error("Not allowed by CORS"));
-    },
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: "Content-Type, Authorization",
-    optionsSuccessStatus: 200,
-  })
-);
+const isOriginAllowed = (origin) => {
+  if (!origin) return true; // non-browser requests
+  if (allowedOrigins.includes("*")) return true;
+  if (allowedOrigins.includes(origin)) return true;
+  // Allow any Vercel preview/prod domains by default
+  try {
+    const { hostname } = new URL(origin);
+    if (hostname.endsWith(".vercel.app")) return true;
+  } catch (_) {}
+  return false;
+};
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (isOriginAllowed(origin)) return callback(null, true);
+    return callback(new Error("Not allowed by CORS"));
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
 
