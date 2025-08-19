@@ -13,12 +13,27 @@ const accountsRoutes = require("./Routes/accountsRoutes")
 
 const app= express();
 
-//middleware for CORS
-app.use(cors({
-    origin: process.env.CLIENT_URL||"*", 
-    methods: ["GET","POST", "PUT", "DELETE"],
-    allowedHeaders: "Content-Type, Authorization"
-}));
+// CORS configuration with support for multiple origins via env
+const rawOrigins = process.env.CLIENT_URLS || process.env.CLIENT_URL || "*";
+const allowedOrigins = rawOrigins.split(",").map((o) => o.trim());
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true); // allow non-browser or same-origin
+      if (
+        allowedOrigins.includes("*") ||
+        allowedOrigins.includes(origin)
+      ) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: "Content-Type, Authorization",
+    optionsSuccessStatus: 200,
+  })
+);
 
 app.use(express.json());
 
